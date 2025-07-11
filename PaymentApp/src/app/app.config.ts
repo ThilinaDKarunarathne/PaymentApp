@@ -1,15 +1,14 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideForms } from '@angular/forms';
-import { routes } from './app.routes';
+import { FormsModule } from '@angular/forms';  // ✅ Import FormsModule
 import { provideHttpClient } from '@angular/common/http';
+import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }), 
+    provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(), // Ensure HttpClient is provided
-    provideForms()
-  
+    provideHttpClient(),
+    importProvidersFrom(FormsModule)  // ✅ Correct way in Angular v18
   ]
 };

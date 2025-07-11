@@ -4,11 +4,10 @@ import { PaymentDedtailService } from '../shared/payment-dedtail.service';
 import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-payment-details',
-  standalone: true,
-  imports: [PaymentDetailFormComponent,NgFor],
-  templateUrl: './payment-details.component.html',
-  styleUrl: './payment-details.component.css'
+    selector: 'app-payment-details',
+    imports: [PaymentDetailFormComponent, NgFor],
+    templateUrl: './payment-details.component.html',
+    styleUrl: './payment-details.component.css'
 })
 export class PaymentDetailsComponent implements OnInit{
   
