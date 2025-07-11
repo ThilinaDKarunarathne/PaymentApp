@@ -16,6 +16,7 @@ builder.Services.AddDbContext<PaymentDetailContext>(opt =>
             opt.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection"));
         });
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,6 +25,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.UseSwaggerDocumentation(); 
 }
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://localhost:4200","https://localhost:4200"));
 
 app.UseHttpsRedirection();
 

@@ -62,7 +62,7 @@ namespace PaymentAPI.Controllers
         {
             if (id != paymentDetail.PaymentDetailId)
             {
-                return BadRequest();
+                return Unauthorized();
             }
 
             _context.Entry(paymentDetail).State = EntityState.Modified;
